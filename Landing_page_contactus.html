@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/contactus.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap" rel="stylesheet">
+    <title>Contact Us</title>
+</head>
+<body>
+    <nav>
+        <div class="Block">
+            <a class="Nav-link" href="Landing_page_home.html">HOME</a>
+            <a class="Nav-link" href="Landing_page_champion_prize.html">CHAMPION PRIZE</a>
+            <a class="Nav-link" href="Landing_page_mentornjury.html">MENTOR & JURYS</a>
+            <a class="Nav-link" href="Landing_page_about.html">ABOUT</a>
+            <a class="Nav-link" href="Landing_page_faq.html">FAQ</a>
+            <a class="Nav-link" href="Landing_page_timeline.html">TIMELINE</a>
+            <button class="login-block Nav-link">
+                <a class="Login" href="Login-Page.html">LOGIN</a>
+            </button>
+        </div>
+    </nav>
+    <img class="logo" src="Assets/Hackathon_logo.png" alt="Hackathon">
+    <p style="position: absolute; top: 50px;left: 75px; color: #FFFF;">Hackathon</p>
+    <h1 style="position: absolute; top: 125px;left: 218px; color: #FFFF;">CONTACT US</h1>
+    <div class="submission-container">
+        <div>
+            <p>Name:</p>
+            <input type="text" id="name" class="submission" placeholder="Enter your name">
+        </div>
+        <div>
+            <p>Email:</p>
+            <input type="text" id="email" class="submission" placeholder="Enter your Email">
+        </div>
+        <div>
+            <p>Subject:</p>
+            <input type="text" id="subject" class="submission" placeholder="Enter your subject">
+        </div>
+        <div>
+            <p>Message:</p>
+            <input type="text" id="message" class="submission" placeholder="Enter your message">
+        </div>
+        <div class="submit-button" onclick="handleSubmit()" style="cursor: pointer;">
+            <a onclick="handleSubmit()">Submit
+        </div>
+    </div>
+    <div id="image-container" class="image-popup">
+        <img src="Assets/Pesan_berhasil_terkirim.jpeg" alt="Success Image" style="width: 350px; border-radius: 15px;">
+    </div>
+    <script src="script.js"></script>   
+
+    <script src="js/contactus.js"></script>
+</body>
+</html>
