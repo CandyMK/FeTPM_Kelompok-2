@@ -20,7 +20,7 @@ logoutButton.addEventListener('click', () => {
 });
 
 confirmButton.addEventListener('click', () => {
-    window.location.href = 'Login-Page.html';
+    window.location.href = 'Landing_Page_Home.html';
     alert(`You have successfully logged out!`);
 });
 
