@@ -111,6 +111,7 @@ document.getElementById('submitButton').addEventListener('click', function (even
 
     // **Console log all stored data**
     console.log("All stored user data:", JSON.parse(localStorage.getItem('userData')));
+    window.location.href = "Login-Page.html";
 });
 
 // ERROR MODAL
