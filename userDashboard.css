@@ -217,6 +217,9 @@ main {
 }
 
 .logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
   font-family: 'Londrina Solid', sans-serif;
   padding: 12px 18px;
   border-radius: 15px;
@@ -314,7 +317,7 @@ main {
   }
 
   main {
-    margin-top: 350px;
+    margin-top: 450px;
   }
 
   .timeline-item.up p {
