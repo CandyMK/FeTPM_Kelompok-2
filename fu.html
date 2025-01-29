@@ -1,0 +1,88 @@
+<div class="horizontal-scroll-container" id="scroll-container">
+    <div class="scroll-content" id="scroll-content"></div>
+</div>
+
+<script>
+    window.onload = function () {
+        function createScrollItem(imageFile) {
+            const item = document.createElement('div');
+            item.className = 'scroll-item';
+            item.style.width = '150px';
+            item.style.height = '150px';
+            item.style.display = 'flex';
+            item.style.alignItems = 'center';
+            item.style.justifyContent = 'center';
+
+            const img = document.createElement('img');
+            img.src = imageFile;
+            img.alt = "Media Partner";
+            img.style.width = '100px';
+            img.style.height = '100px';
+            img.style.objectFit = 'contain';
+
+            item.appendChild(img);
+            return item;
+        }
+
+        async function fetchFilesFromFolder(folderPath) {
+            return [
+                `${folderPath}/medpar1.png`,
+                `${folderPath}/medpar2.png`,
+                `${folderPath}/medpar3.png`,
+                `${folderPath}/medpar4.png`,
+                `${folderPath}/medpar5.png`
+            ];
+        }
+
+        const scrollContainer = document.getElementById('scroll-container');
+        const scrollContent = document.getElementById('scroll-content');
+
+        scrollContainer.style.display = 'flex';
+        scrollContainer.style.overflowX = 'auto';
+        scrollContainer.style.scrollBehavior = 'smooth';
+        scrollContainer.style.whiteSpace = 'nowrap';
+        scrollContainer.style.width = '100%';
+        scrollContainer.style.padding = '10px';
+        scrollContainer.style.border = '2px solid #ccc';
+
+        scrollContent.style.display = 'flex';
+        scrollContent.style.gap = '20px';
+
+        fetchFilesFromFolder('Assets').then((imageFiles) => {
+            // Duplicate images for seamless infinite scrolling
+            const fullImages = [...imageFiles, ...imageFiles];
+
+            fullImages.forEach((imageFile) => {
+                const item = createScrollItem(imageFile);
+                scrollContent.appendChild(item);
+            });
+
+            function checkScroll() {
+                if (scrollContainer.scrollLeft === 0) {
+                    scrollContainer.scrollLeft = scrollContent.scrollWidth / 2;
+                } else if (scrollContainer.scrollLeft >= scrollContent.scrollWidth / 2) {
+                    scrollContainer.scrollLeft = 0;
+                }
+            }
+
+            scrollContainer.addEventListener('scroll', checkScroll);
+        }).catch((error) => {
+            console.error('Error fetching files:', error);
+        });
+    };
+</script>
+
+<style>
+    .horizontal-scroll-container {
+        position: relative;
+        width: 100%;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .scroll-content {
+        display: flex;
+        gap: 20px;
+        white-space: nowrap;
+    }
+</style>
