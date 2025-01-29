@@ -236,7 +236,7 @@ main {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 900;
+  z-index: 1100;
 }
 
 .popup.show, .overlay.show {
@@ -256,7 +256,7 @@ main {
   border-radius: 10px;
   text-align: center;
   padding: 40px 25px;
-  z-index: 999;
+  z-index: 1200;
 }
 
 .popup-logo {
