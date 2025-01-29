@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('confirm-btn').addEventListener('click', function () {
-        localStorage.removeItem('loggedInUser'); // Hapus sesi pengguna
-        window.location.href = 'Login-Page.html'; // Redirect ke halaman login
+        localStorage.removeItem('loggedInUser'); 
+        window.location.href = 'Login-Page.html';
     });
 
     document.getElementById('cancel-btn').addEventListener('click', function () {
