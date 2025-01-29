@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const matchedUser = users.find(user => user.groupName === inputGroupName && user.password === inputPassword);
 
         if (matchedUser) {
-            alert('Login Berhasil!');
+            alert('Login Successful!');
             localStorage.setItem('loggedInUser', JSON.stringify(matchedUser));
 
             window.location.href = 'userDashboard.html'; 
         } else {
-            alert('Group Name atau Password salah!');
+            alert('Wrong Group Name or Password!');
         }
     });
 });
