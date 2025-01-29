@@ -110,7 +110,6 @@ window.onload = function () {
     scrollContainer.style.whiteSpace = 'nowrap';
 
     fetchFilesFromFolder('Assets').then((imageFiles) => {
-        // Duplicate images for seamless infinite scrolling
         const fullImages = [...imageFiles, ...imageFiles];
 
         fullImages.forEach((imageFile) => {

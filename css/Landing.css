@@ -550,8 +550,8 @@ p{
 
 .horizontal-scroll-container {
     position: relative;
-    width: 1370px; /* Increased width for larger container */
-    height: 170px; /* Increased height to make the container bigger */
+    width: 1370px;
+    height: 170px;
     overflow: auto;
     display: flex;
     justify-content: center;
@@ -566,27 +566,27 @@ p{
 }
 
 .scroll-item {
-    width: 200px; /* Increased width of scroll items */
-    height: 170px; /* Increased height of scroll items */
+    width: 200px;
+    height: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .scroll-item img {
-    width: 150px; /* Increased image size */
-    height: 150px; /* Increased image size */
+    width: 150px;
+    height: 150px;
     object-fit: contain;
 }
 
 .section {
     padding: 100px;
     min-height: 100vh;
-    position: relative; /* Ensures sections follow normal flow */
+    position: relative; 
 }
 
 #page2, #page3, #page4,#page6 {
-    margin-top: 500px; /* Adjust margin to control space between sections */
+    margin-top: 500px;
 }
 
 #page5 {
