@@ -1,3 +1,5 @@
+let userData = [];
+
 const showError = (message, imageUrl) => {
     const modal = document.getElementById('errorModal');
     const overlay = document.getElementById('modalOverlay');
@@ -19,10 +21,9 @@ const storeMultipleEntries = (groupName, password, userType) => {
         password: password,
         userType: userType ? userType.value : null
     };
-
-    allEntries.push(newEntry);
-
-    localStorage.setItem('userData', JSON.stringify(allEntries));
+    
+    userData.push(newEntry);
+    console.log("Stored Data:", userData);
 };
 
 const closeModal = (event) => {
@@ -46,7 +47,7 @@ document.getElementById('submitButton').addEventListener('click', function(event
     const userType = document.querySelector('input[name="type"]:checked');
 
     if (!groupName) {
-        showError("Group name is required.", "Assets_regist/group_name_error.png");
+        showError("Group name is required.", "Assets_regist/empty_group.png");
         return;
     }
 
@@ -78,17 +79,3 @@ document.getElementById('submitButton').addEventListener('click', function(event
         showError("Passwords do not match.", "Assets_regist/pass_doesnt_match.png");
     }
 });
-
-window.addEventListener('load', function() {
-    const storedData = JSON.parse(localStorage.getItem('userData'));
-
-    if (storedData) {
-        storedData.forEach(entry => {
-            console.log(entry);
-        });
-    } else {
-        console.log("No data found in localStorage.");
-    }
-});
-
-// localStorage.clear();
