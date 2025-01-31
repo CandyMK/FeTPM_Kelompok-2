@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const inputPassword = document.querySelector('input[placeholder="Password..."]').value;
 
         try {
-            const response = await fetch('http://127.0.0.1:5500/Login-Page.html', {
+            const response = await fetch('http://localhost:8000/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
                 body: JSON.stringify({ groupName: inputGroupName, password: inputPassword })
             });
 
@@ -18,14 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (data.success) {
                 alert('Login Successful!');
-                localStorage.setItem('loggedInUser', JSON.stringify(data.user));
-                window.location.href = 'userDashboard.html'; 
+                window.location.href = 'http://localhost:8000/userDashboard';
             } else {
-                alert(data.message);
+                showWarning('Wrong Group Name or Password!');
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Something went wrong!');
+            showWarning('Server error! Please try again later.');
         }
     });
 });
