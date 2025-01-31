@@ -1,23 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.querySelector('form');
 
-    loginForm.addEventListener('submit', function (event) {
+    loginForm.addEventListener('submit', async function (event) {
         event.preventDefault();
 
         const inputGroupName = document.querySelector('input[placeholder="Group Name..."]').value.trim();
         const inputPassword = document.querySelector('input[placeholder="Password..."]').value;
 
-        let users = JSON.parse(localStorage.getItem('userData')) || [];
+        try {
+            const response = await fetch('http://127.0.0.1:5500/Login-Page.html', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ groupName: inputGroupName, password: inputPassword })
+            });
 
-        const matchedUser = users.find(user => user.groupName === inputGroupName && user.password === inputPassword);
+            const data = await response.json();
 
-        if (matchedUser) {
-            alert('Login Successful!');
-            localStorage.setItem('loggedInUser', JSON.stringify(matchedUser));
-
-            window.location.href = 'userDashboard.html'; 
-        } else {
-            alert('Wrong Group Name or Password!');
+            if (data.success) {
+                alert('Login Successful!');
+                localStorage.setItem('loggedInUser', JSON.stringify(data.user));
+                window.location.href = 'userDashboard.html'; 
+            } else {
+                alert(data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Something went wrong!');
         }
     });
 });
